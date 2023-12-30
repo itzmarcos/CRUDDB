@@ -23,10 +23,10 @@ style.theme_use("clam")
 frameCima = Frame(janela, width=1043, height=50, bg=co8, relief=FLAT)
 frameCima.grid(row=0, column=0)
 
-frameMeio = Frame(janela, width=1043, height=303, bg=co8, pady=20, relief=FLAT)
+frameMeio = Frame(janela, width=1043, height=303, bg=co3, pady=20, relief=FLAT)
 frameMeio.grid(row=1, column=0, pady=1, padx=0, sticky=NSEW)
 
-frameBaixo = Frame(janela, width=1043, height=300, bg=co8, relief=FLAT)
+frameBaixo = Frame(janela, width=1043, height=300, bg=co1, relief=FLAT)
 frameBaixo.grid(row=2, column=0, pady=0, padx=1, sticky=NSEW)
 
 #funçoes
@@ -69,13 +69,14 @@ def deletar():
      
 
 
+
 #entradas
-l_nome = Label(frameMeio, text='Nome', height=1, anchor=NW, font=('Ivy 10 bold'), bg=co1, fg=co7)
+l_nome = Label(frameMeio, text='      Nome      ', height=1, anchor=NW, font=('Ivy 12 bold'), bg=co1, fg=co7)
 l_nome.place(x=10, y=10)
 e_nome = Entry(frameMeio, width=30, justify='left', relief=SOLID)
 e_nome.place(x=130, y=11)
 
-l_valor = Label(frameMeio, text='Valor da Compra', height=1, anchor=NW, font=('Ivy 10 bold'), bg=co1, fg=co7)
+l_valor = Label(frameMeio, text='      Valor       ', height=1, anchor=NW, font=('Ivy 12 bold'), bg=co1, fg=co7)
 l_valor.place(x=10, y=40)
 e_valor = Entry(frameMeio, width=30, justify='left', relief=SOLID)
 e_valor.place(x=130, y=41)
@@ -92,16 +93,16 @@ b_delete = Button(frameMeio,command=deletar, text='Delete'.upper(), compound=LEF
 b_delete.place(x=330, y=90)
 
 
-l_total = Label(frameMeio, text='', width=15, height=3, anchor=CENTER,font=('Ivy 17 bold'), bg=co7 ,fg=co1)
+l_total = Label(frameMeio, text='', width=15, height=3, anchor=CENTER,font=('Ivy 17 bold'), bg=co8 ,fg=co1)
 l_total.place(x=450, y=17)
 
-l_total_ = Label(frameMeio, text=' Valor total               ', height=1, anchor=NW,font=('Ivy 17 bold'), bg=co7 ,fg=co1)
+l_total_ = Label(frameMeio, text=' Valor total               ', height=1, anchor=NW,font=('Ivy 17 bold'), bg=co8 ,fg=co1)
 l_total_.place(x=450, y=12)
 
-l_qtd = Label(frameMeio, text='', width=15, height=3,anchor=CENTER,font=('Ivy 17 bold'), bg=co7 ,fg=co1)
+l_qtd = Label(frameMeio, text='', width=15, height=3,anchor=CENTER,font=('Ivy 17 bold'), bg=co8 ,fg=co1)
 l_qtd.place(x=450, y=90)
 
-l_qtd_ = Label(frameMeio, text='Quantidade Total',height=1, anchor=NW, font=('Ivy 17 bold'), bg=co7, fg=co1)
+l_qtd_ = Label(frameMeio, text='Quantidade Total',height=1, anchor=NW, font=('Ivy 17 bold'), bg=co8, fg=co1)
 l_qtd_.place(x=450, y=92)
 
 
@@ -129,7 +130,7 @@ def mostrar():
     frameBaixo.grid_rowconfigure(0, weight=12)
 
     hd=["center","center","center"]
-    h=[290,290,290]
+    h=[294,294,294]
     n=0
 
     for col in tabela_head:
