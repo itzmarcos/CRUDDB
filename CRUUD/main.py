@@ -48,6 +48,21 @@ def inserir():
     e_nome.delete(0,'end')
     e_valor.delete(0,'end')
 
+    mostrar()
+
+# def atualizar():
+#     try:
+#         treev_dados = tree.focus()
+#         treev_dicionario = tree.item(treev_dados)
+#         treev_lista = treev_dicionario['values']
+
+#         valor = treev_lista[0]
+
+#         e_nome.delete(0,'end')
+#         e_valor.delete(0,'end')
+
+
+
 def deletar():
     try:
         treev_dados = tree.focus()
@@ -69,14 +84,13 @@ def deletar():
      
 
 
-
 #entradas
-l_nome = Label(frameMeio, text='      Nome      ', height=1, anchor=NW, font=('Ivy 12 bold'), bg=co1, fg=co7)
+l_nome = Label(frameMeio, text='   Nome   ', height=1, anchor=NW, font=('Ivy 12 bold'), bg=co1, fg=co7)
 l_nome.place(x=10, y=10)
 e_nome = Entry(frameMeio, width=30, justify='left', relief=SOLID)
 e_nome.place(x=130, y=11)
 
-l_valor = Label(frameMeio, text='      Valor       ', height=1, anchor=NW, font=('Ivy 12 bold'), bg=co1, fg=co7)
+l_valor = Label(frameMeio, text='   Valor    ', height=1, anchor=NW, font=('Ivy 12 bold'), bg=co1, fg=co7)
 l_valor.place(x=10, y=40)
 e_valor = Entry(frameMeio, width=30, justify='left', relief=SOLID)
 e_valor.place(x=130, y=41)
@@ -108,11 +122,12 @@ l_qtd_.place(x=450, y=92)
 
 
 
+
 def mostrar():
+        
     global tree
 
     tabela_head = ['#Item','Nome', 'Valor']
-
     lista_itens = ver_from()
 
 
@@ -134,26 +149,31 @@ def mostrar():
     n=0
 
     for col in tabela_head:
+
         tree.heading(col, text=col.title(), anchor=CENTER)
-            
+                    
         tree.column(col, width=h[n],anchor=hd[n])
         n+=1
 
-    # inserindo itens
+# inserindo itens
     for item in lista_itens:
         tree.insert('', 'end', values=item)
 
+        quantidade = []
 
-    quantidade = []
     for iten in lista_itens:
-        quantidade.append(iten[2])
+        quantidade.append(iten[0])
 
-    Total_valor = sum(quantidade)
-    Total_itens = len(quantidade)
+    Total_valor=sum(quantidade)
+    Total_itens=len(quantidade)
 
     l_total['text'] = 'R$ {:,.2f}'.format(Total_valor)
     l_qtd['text'] = Total_itens
 
+    
+
 mostrar()
+
+
 
 janela.mainloop()
