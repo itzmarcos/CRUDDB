@@ -50,17 +50,41 @@ def inserir():
 
     mostrar()
 
-# def atualizar():
-#     try:
-#         treev_dados = tree.focus()
-#         treev_dicionario = tree.item(treev_dados)
-#         treev_lista = treev_dicionario['values']
+def atualizar():
+    try:
+        treev_dados = tree.focus()
+        treev_dicionario = tree.item(treev_dados)
+        treev_lista = treev_dicionario['values']
 
-#         valor = treev_lista[0]
+        valor = treev_lista[0]
 
-#         e_nome.delete(0,'end')
-#         e_valor.delete(0,'end')
+        e_nome.delete(0,'end')
+        e_valor.delete(0,'end')
 
+        id = int(treev_lista[0])
+        e_nome.insert(0,treev_lista[1])
+        e_valor.insert(0,treev_lista[2])
+
+        def update():
+
+            nome = e_nome.get()
+            valor = e_valor.get()
+
+            lista_atualizar = [nome, valor]
+
+            for i in lista_atualizar:
+                if i=='':
+                    messagebox.showerror('Erro', 'Preencha todos os campos')
+                    return
+                
+            att_(lista_atualizar)
+            messagebox.showerror('Sucesso','Os dados foram atualizado com sucesso')
+
+            e_nome.delete(0,'end')
+            e_valor.delete(0,'end')
+
+    except IndexError:
+        messagebox.showerror('Erro', 'Seleciona um dos dados')
 
 
 def deletar():
@@ -100,7 +124,7 @@ e_valor.place(x=130, y=41)
 b_inserir = Button(frameMeio,command=inserir, text='Adicionar'.upper(), compound=LEFT, anchor=NW, overrelief=RIDGE)
 b_inserir.place(x=330, y=10)
 
-b_atulizar = Button(frameMeio, text='Atualizar'.upper(), compound=LEFT, anchor=NW, overrelief=RIDGE)
+b_atulizar = Button(frameMeio, command=atualizar, text='Atualizar'.upper(), compound=LEFT, anchor=NW, overrelief=RIDGE)
 b_atulizar.place(x=330, y=50)
 
 b_delete = Button(frameMeio,command=deletar, text='Delete'.upper(), compound=LEFT, anchor=NW, overrelief=RIDGE)
